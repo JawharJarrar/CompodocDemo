@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   public  user: Signup = new Signup();
   public loginForm: FormGroup;
   public hide = true;
+  public response: any;
+  public message = false ;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -35,7 +37,14 @@ export class LoginComponent implements OnInit {
     }
 
   onLoginSubmit() {
-    this.authservice.login();
-    this.router.navigate(['/user/list']);
+    this.authservice.login(this.user).subscribe(data => {
+      if (data === null ) {
+        this. message = true ;
+      } else {
+      localStorage.setItem('token', 'fake login token');
+        this.router.navigate(['/user/list']);
+       }
+    });
+
   }
 }

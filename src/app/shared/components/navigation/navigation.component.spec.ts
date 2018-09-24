@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { fakeAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -11,7 +12,7 @@ describe('NavigationComponent', () => {
 
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
-      imports: [MatSidenavModule, MaterialModule, RouterTestingModule],
+      imports: [HttpClientModule, MatSidenavModule, MaterialModule, RouterTestingModule],
       declarations: [NavigationComponent],
     })
     .compileComponents();

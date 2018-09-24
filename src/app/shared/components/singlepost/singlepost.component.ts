@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {MatDialog} from '@angular/material';
+import { Router } from '@angular/router';
+
 
 import { Post } from '../../models/post.model';
 import { Comment } from '../../models/comment.model';
@@ -24,50 +26,33 @@ export class SinglepostComponent implements OnInit {
     private postService: PostService,
     private dataService: DataService,
     public dialog: MatDialog,
-    public commentservice: CommentService
+    public commentservice: CommentService,
+    private router:  Router
+
   ) { }
 
   ngOnInit() {
     this.postService.getComments(this.post.id).subscribe(data => {
-    this.comments = data;
+      this.comments = data;
+    });
+    this.postService.getAll().subscribe(data => {
+      this.posts = data;
     });
   }
 
-  deletePost(post: Post) {
-    const dialogRef = this.dialog.open(ConfirmComponent, {
-      data: { message: 'are you sure you want to remove this post' }
+  refresh() {
+    this.postService.getComments(this.post.id).subscribe(data => {
+      this.comments = data;
     });
-    dialogRef.afterClosed().subscribe(result => {
-      if ( result === 'yes' ) {
-        this.postService.deletePost(post);
-        const index = this.posts.indexOf(post);
-        this.posts.splice(index, 1);
-      }
-    });
-  }
 
+    }
   deleteComment(comment: Comment) {
     this.commentservice.deleteComment(comment);
     const dialogRef = this.dialog.open(ConfirmComponent, {
-      data: { message: 'are you sure you want to delete this comment ?' }
+      data: { message: 'are you sure you want to delete this comment ?', entity: comment, type: 'comment' }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if ( result === 'yes' ) {
-        this.commentservice.deleteComment(comment);
-        const index = this.comments.indexOf(comment);
-        this.comments.splice(index, 1);
-      }
-    });
-  }
-
-  UpdatePost(post: Post) {
-    this.dataService.postid = post.id;
-    const dialogRef = this.dialog.open(PostformComponent,  {
-      data: { title: post.title,  body: post.body,  action: 'edit'}
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      const index = this.posts.indexOf(post);
-      this.posts[index] = result;
+      this.refresh();
     });
   }
 
@@ -77,7 +62,7 @@ export class SinglepostComponent implements OnInit {
       data: { action: 'add' }
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.comments.push(result);
+      this.refresh();
     });
   }
 
@@ -88,8 +73,7 @@ export class SinglepostComponent implements OnInit {
       data: { name: comment.name,  email: comment.email,  body: comment.body, action: 'edit'}
     });
     dialogRef.afterClosed().subscribe(result => {
-      const index = this.comments.indexOf(comment);
-      this.comments[index] = result;
+      this.refresh();
     });
   }
 }

@@ -534,7 +534,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;https://jsonplaceholder.typicode.com/users/&#x27;</code>
+                            <i>Default value : </i><code>&#x27;http://localhost:3000/users&#x27;</code>
                         </td>
                     </tr>
                         <tr>
@@ -563,7 +563,7 @@ import {User}  from &#x27;../models/user.model&#x27;;
   providedIn: &#x27;root&#x27;
 })
 export class UserService {
-  private serviceUrl &#x3D; &#x27;https://jsonplaceholder.typicode.com/users/&#x27;;
+  private serviceUrl &#x3D; &#x27;http://localhost:3000/users&#x27;;
   constructor(private http: HttpClient) {
   }
 
@@ -572,7 +572,7 @@ export class UserService {
   }
 
   createUser(user: User) {
-    return this.http.post(this.serviceUrl, JSON.stringify(user) ).subscribe();
+    return this.http.post(this.serviceUrl, user).subscribe();
   }
 
   deleteUser(user: User) {
@@ -584,7 +584,7 @@ export class UserService {
   }
 
   updateUser(userid: number, user: User) {
-    return this.http.put(this.serviceUrl + &#x27;/&#x27; + userid, JSON.stringify(user)).subscribe()  ;
+    return this.http.put(this.serviceUrl + &#x27;/&#x27; + userid, user).subscribe();
   }
 }
 </code></pre>

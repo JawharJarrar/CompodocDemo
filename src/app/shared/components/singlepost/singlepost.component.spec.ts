@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+
 
 import { MaterialModule } from './../material';
 import { PostsListComponent } from './../../../posts-list/posts-list.component';
@@ -12,7 +14,7 @@ describe('SinglepostComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientModule, MaterialModule, BrowserAnimationsModule],
+      imports: [ HttpClientModule, MaterialModule, BrowserAnimationsModule, RouterTestingModule],
       declarations: [ SinglepostComponent, PostsListComponent],
     })
     .compileComponents();

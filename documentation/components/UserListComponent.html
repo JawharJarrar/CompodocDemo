@@ -161,6 +161,9 @@
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
                             <li>
+                                <a href="#refresh">refresh</a>
+                            </li>
+                            <li>
                                 <a href="#UpdateUser">UpdateUser</a>
                             </li>
                         </ul>
@@ -279,7 +282,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/user-list/user-list.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/user-list/user-list.component.ts:40</a></div>
                             </td>
                         </tr>
 
@@ -317,7 +320,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/user-list/user-list.component.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/user-list/user-list.component.ts:50</a></div>
                             </td>
                         </tr>
 
@@ -406,6 +409,44 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="refresh"></a>
+                        <span class="name">
+                            <b>
+                            refresh
+                            </b>
+                            <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>refresh()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/user-list/user-list.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="UpdateUser"></a>
                         <span class="name">
                             <b>
@@ -424,7 +465,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/user-list/user-list.component.ts:57</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/user-list/user-list.component.ts:59</a></div>
                             </td>
                         </tr>
 
@@ -669,30 +710,32 @@ export class UserListComponent implements OnInit {
   this.userService.getAll().subscribe(data &#x3D;&gt; {
     this.users &#x3D; data;
     this.dataSource &#x3D; new UserDataSource(this.users);
+    console.log(this.users);
+
   });
 }
-
+  refresh() {
+    this.userService.getAll().subscribe(data &#x3D;&gt; {
+      this.users &#x3D; data;
+      this.dataSource &#x3D; new UserDataSource(this.users);
+    });
+  }
   AddUser( ) {
     const dialogRef &#x3D; this.dialog.open(UserformComponent, {
       data: { name: &#x27;&#x27; }
     });
     dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
-      this.users.push(result);
-      this.dataSource &#x3D; new UserDataSource(this.users);
+      this.refresh();
+
     });
   }
 
   DeleteUser(user: User) {
     const dialogRef &#x3D; this.dialog.open(ConfirmComponent, {
-      data: { message: &#x27;are you sure you want to delete this user ?&#x27; }
+      data: { message: &#x27;are you sure you want to delete this user ?&#x27;, entity: user, type: &#x27;user&#x27; }
     });
     dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
-      if ( result &#x3D;&#x3D;&#x3D; &#x27;yes&#x27; ) {
-        this.userService.deleteUser(user);
-        const index &#x3D; this.users.indexOf(user);
-        this.users.splice(index, 1);
-        this.dataSource &#x3D; new UserDataSource(this.users);
-      }
+      this.refresh();
     });
    }
 
@@ -703,8 +746,8 @@ export class UserListComponent implements OnInit {
       data: { action: &#x27;edit&#x27;, name: user.name, website: user.website, phone: user.phone, email: user.email}
       });
     dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
-      this.users[index] &#x3D; result;
-      this.dataSource &#x3D; new UserDataSource(this.users);
+      this.refresh();
+
     });
   }
 }

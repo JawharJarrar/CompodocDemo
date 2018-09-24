@@ -9,7 +9,7 @@ import {User}  from '../models/user.model';
   providedIn: 'root'
 })
 export class UserService {
-  private serviceUrl = 'https://jsonplaceholder.typicode.com/users/';
+  private serviceUrl = 'http://localhost:3000/users';
   constructor(private http: HttpClient) {
   }
 
@@ -18,7 +18,7 @@ export class UserService {
   }
 
   createUser(user: User) {
-    return this.http.post(this.serviceUrl, JSON.stringify(user) ).subscribe();
+    return this.http.post(this.serviceUrl, user).subscribe();
   }
 
   deleteUser(user: User) {
@@ -30,6 +30,6 @@ export class UserService {
   }
 
   updateUser(userid: number, user: User) {
-    return this.http.put(this.serviceUrl + '/' + userid, JSON.stringify(user)).subscribe()  ;
+    return this.http.put(this.serviceUrl + '/' + userid, user).subscribe();
   }
 }

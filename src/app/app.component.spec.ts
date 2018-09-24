@@ -1,5 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from './shared/components/material';
 import { AppComponent } from './app.component';
@@ -8,8 +9,8 @@ import { NavigationComponent } from './shared/components/navigation/navigation.c
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppComponent, NavigationComponent ],
-      imports: [ RouterTestingModule, MaterialModule ]
+      declarations: [AppComponent, NavigationComponent ],
+      imports: [ HttpClientModule, RouterTestingModule, MaterialModule ]
     })
     .compileComponents();
   }));

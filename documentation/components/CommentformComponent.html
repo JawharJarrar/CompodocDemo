@@ -559,7 +559,7 @@ export class CommentformComponent implements OnInit {
   CommentSubmit() {
      if (this.data.action &#x3D;&#x3D;&#x3D; &#x27;edit&#x27;) {
         this.comment.id &#x3D;  this.dataservice.commentid;
-        this.commentservice.updateComment( this.dataservice.postid, this.comment );
+        this.commentservice.updateComment(this.comment );
         this.dialogRef.close(this.comment);
     } else {
         this.comment.postId &#x3D; this.dataservice.postid;

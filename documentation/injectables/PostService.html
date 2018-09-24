@@ -115,6 +115,9 @@
                                 <a href="#getComments">getComments</a>
                             </li>
                             <li>
+                                <a href="#getPosts">getPosts</a>
+                            </li>
+                            <li>
                                 <a href="#updatePost">updatePost</a>
                             </li>
                         </ul>
@@ -207,7 +210,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/shared/services/post.service.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/shared/services/post.service.ts:43</a></div>
                             </td>
                         </tr>
 
@@ -276,13 +279,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/shared/services/post.service.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/shared/services/post.service.ts:39</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>the constructor of our service takes httpclient to  access apis</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -385,7 +390,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/shared/services/post.service.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/shared/services/post.service.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -454,7 +459,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/shared/services/post.service.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/shared/services/post.service.ts:55</a></div>
                             </td>
                         </tr>
 
@@ -505,6 +510,44 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="getPosts"></a>
+                        <span class="name">
+                            <b>
+                            getPosts
+                            </b>
+                            <a href="#getPosts"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getPosts()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/shared/services/post.service.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="updatePost"></a>
                         <span class="name">
                             <b>
@@ -523,7 +566,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/shared/services/post.service.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/shared/services/post.service.ts:51</a></div>
                             </td>
                         </tr>
 
@@ -617,7 +660,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;https://jsonplaceholder.typicode.com/posts/&#x27;</code>
+                            <i>Default value : </i><code>&#x27;http://localhost:3000/posts/&#x27;</code>
                         </td>
                     </tr>
                         <tr>
@@ -654,7 +697,7 @@ import { Comment } from &#x27;../models/comment.model&#x27;;
  * the service used to manage posts and their related comments
  */
 export class PostService {
-  private postsUrl &#x3D; &#x27;https://jsonplaceholder.typicode.com/posts/&#x27;;
+  private postsUrl &#x3D; &#x27;http://localhost:3000/posts/&#x27;;
 
 /**
  * the constructor of our service takes httpclient to  access apis
@@ -667,14 +710,18 @@ export class PostService {
   getAll(): Observable&lt;Post[]&gt; {
     return this.http.get&lt;Post[]&gt;(this.postsUrl);
   }
-
+  getPosts() {
+    return this.http.get&lt;Post[]&gt;(this.postsUrl);
+  }
+/**
+ * the constructor of our service takes httpclient to  access apis
+ */
   deletePost(post: Post) {
     return this.http.delete(this.postsUrl + &#x27;/&#x27; + post.id ).subscribe()  ;
   }
 
   addPost(post: Post) {
-    console.log(&#x27;before&#x27;);
-    return this.http.post(this.postsUrl, JSON.stringify(post)).subscribe();
+    return this.http.post(this.postsUrl, post).subscribe();
   }
 
   getById(postid: number) {
@@ -682,7 +729,7 @@ export class PostService {
   }
 
   updatePost(postid: number, post: Post) {
-    return this.http.put(this.postsUrl + &#x27;/&#x27; + postid, JSON.stringify(post)).subscribe() ;
+    return this.http.put(this.postsUrl + &#x27;/&#x27; + postid, post).subscribe() ;
   }
 
   getComments(id: number):  Observable&lt;Comment[]&gt; {

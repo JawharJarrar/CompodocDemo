@@ -7,11 +7,12 @@ import { Comment } from '../models/comment.model';
   providedIn: 'root'
 })
 export class CommentService {
-  private commentsUrl = 'https://jsonplaceholder.typicode.com/comments/';
+  private commentsUrl = 'http://localhost:3000/comments';
   constructor(private http: HttpClient) {}
 
   addComment(comment: Comment) {
-    return this.http.post(this.commentsUrl, JSON.stringify(comment)).subscribe();
+  console.log(comment);
+    return this.http.post(this.commentsUrl, comment).subscribe();
   }
 
   getById(commentid: number) {
@@ -19,10 +20,10 @@ export class CommentService {
   }
 
   deleteComment(comment: Comment) {
-    return this.http.delete(this.commentsUrl + '/' + comment.id ).subscribe()  ;
+    return this.http.delete(this.commentsUrl  + '/' + comment.id ).subscribe()  ;
   }
 
-  updateComment(commentid: number, comment: Comment) {
-    return this.http.put(this.commentsUrl + '/' + commentid, JSON.stringify(comment)).subscribe();
+  updateComment(comment: Comment) {
+    return this.http.put(this.commentsUrl + '/' + comment.id, comment).subscribe();
   }
 }

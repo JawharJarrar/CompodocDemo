@@ -147,7 +147,16 @@
                                 <a href="#AddPost">AddPost</a>
                             </li>
                             <li>
+                                <a href="#deletePost">deletePost</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#refresh">refresh</a>
+                            </li>
+                            <li>
+                                <a href="#UpdatePost">UpdatePost</a>
                             </li>
                         </ul>
                     </td>
@@ -167,12 +176,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(postService: <a href="../injectables/PostService.html">PostService</a>, dialog: MatDialog)</code>
+<code>constructor(postService: <a href="../injectables/PostService.html">PostService</a>, dataService: <a href="../injectables/DataService.html">DataService</a>, dialog: MatDialog)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/posts-list/posts-list.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/posts-list/posts-list.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -194,6 +203,18 @@
                                                   
                                                         <td>
                                                                     <code><a href="../injectables/PostService.html" target="_self" >PostService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dataService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/DataService.html" target="_self" >DataService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -253,7 +274,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/posts-list/posts-list.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/posts-list/posts-list.component.ts:49</a></div>
                             </td>
                         </tr>
 
@@ -265,6 +286,75 @@
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                             </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deletePost"></a>
+                        <span class="name">
+                            <b>
+                            deletePost
+                            </b>
+                            <a href="#deletePost"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>deletePost(post: <a href="../classes/Post.html">Post</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/posts-list/posts-list.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>post</td>
+                                                        <td>
+                                                                    <code><a href="../classes/Post.html" target="_self" >Post</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
                     </td>
                 </tr>
             </tbody>
@@ -291,7 +381,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/posts-list/posts-list.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/posts-list/posts-list.component.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -303,6 +393,113 @@
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                             </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="refresh"></a>
+                        <span class="name">
+                            <b>
+                            refresh
+                            </b>
+                            <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>refresh()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/posts-list/posts-list.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="UpdatePost"></a>
+                        <span class="name">
+                            <b>
+                            UpdatePost
+                            </b>
+                            <a href="#UpdatePost"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>UpdatePost(post: <a href="../classes/Post.html">Post</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/posts-list/posts-list.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>post</td>
+                                                        <td>
+                                                                    <code><a href="../classes/Post.html" target="_self" >Post</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
                     </td>
                 </tr>
             </tbody>
@@ -342,7 +539,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/posts-list/posts-list.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/posts-list/posts-list.component.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -377,7 +574,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/posts-list/posts-list.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/posts-list/posts-list.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -390,7 +587,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ConfirmComponent } from &#x27;./../shared/components/confirm/confirm.component&#x27;;
+import { DataService } from &#x27;./../shared/services/data.service&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { MatDialog } from &#x27;@angular/material&#x27;;
 
 import { PostService } from &#x27;../shared/services/post.service&#x27;;
@@ -404,7 +603,9 @@ import { Post } from &#x27;../shared/models/post.model&#x27;;
 })
 export class PostsListComponent implements OnInit {
   public  posts: Array&lt;Post&gt;;
-  constructor(private postService: PostService, public dialog: MatDialog) { }
+  constructor(private postService: PostService,
+                      private dataService: DataService,
+                     public dialog: MatDialog) { }
 
   ngOnInit() {
     this.postService.getAll().subscribe(data &#x3D;&gt; {
@@ -412,12 +613,34 @@ export class PostsListComponent implements OnInit {
     });
   }
 
+  refresh() {
+    this.postService.getAll().subscribe(data &#x3D;&gt; {
+      this.posts &#x3D; data;
+    });
+  }
+  UpdatePost(post: Post) {
+    this.dataService.postid &#x3D; post.id;
+    const dialogRef &#x3D; this.dialog.open(PostformComponent,  {
+      data: { title: post.title,  body: post.body,  action: &#x27;edit&#x27;}
+    });
+    dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
+      this.refresh();
+    });
+  }
+  deletePost(post: Post) {
+    const dialogRef &#x3D; this.dialog.open(ConfirmComponent, {
+      data: { message: &#x27;are you sure you want to remove this post&#x27;, entity: post, type: &#x27;post&#x27; }
+    });
+    dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
+      this.refresh();
+    });
+  }
   AddPost() {
     const dialogRef &#x3D; this.dialog.open(PostformComponent,  {
       data: {  action: &#x27;add&#x27;}
     });
     dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
-      this.posts.push(result);
+      this.refresh();
     });
   }
 }
@@ -429,6 +652,13 @@ export class PostsListComponent implements OnInit {
  &lt;mat-list&gt;
   &lt;mat-card      *ngFor&#x3D;&quot;let post of posts&quot;   class&#x3D;&quot;example-card&quot; &gt;
     &lt;app-singlepost   [post]&#x3D;&quot;post&quot; [posts]&#x3D;&quot;posts&quot;  &gt;&lt;/app-singlepost&gt;
+    &lt;mat-card-actions&gt;
+      &lt;button  mat-raised-button  color&#x3D;&quot;primary&quot; (click)&#x3D;deletePost(post) &gt;Delete post&lt;/button&gt;
+      &lt;button   mat-raised-button  color&#x3D;&quot;accent&quot;  (click)&#x3D;UpdatePost(post) &gt;Edit post&lt;/button&gt;
+      &lt;br&gt; &lt;br&gt; &lt;br&gt;
+      &lt;mat-divider&gt;&lt;/mat-divider&gt;
+    &lt;/mat-card-actions&gt;
+
   &lt;/mat-card&gt;
 &lt;mat-divider [inset]&#x3D;&quot;true&quot; *ngIf&#x3D;&quot;!last&quot;&gt;&lt;/mat-divider&gt;
 &lt;/mat-list&gt;</code></pre>
@@ -459,7 +689,7 @@ export class PostsListComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><button   mat-flat-button   (click)="AddPost()"  >add new post</button> <mat-list>  <mat-card      *ngFor="let post of posts"   class="example-card" >    <app-singlepost   [post]="post" [posts]="posts"  ></app-singlepost>  </mat-card><mat-divider [inset]="true" *ngIf="!last"></mat-divider></mat-list></div>'
+        var COMPONENT_TEMPLATE = '<div><button   mat-flat-button   (click)="AddPost()"  >add new post</button> <mat-list>  <mat-card      *ngFor="let post of posts"   class="example-card" >    <app-singlepost   [post]="post" [posts]="posts"  ></app-singlepost>    <mat-card-actions>      <button  mat-raised-button  color="primary" (click)=deletePost(post) >Delete post</button>      <button   mat-raised-button  color="accent"  (click)=UpdatePost(post) >Edit post</button>      <br> <br> <br>      <mat-divider></mat-divider>    </mat-card-actions>  </mat-card><mat-divider [inset]="true" *ngIf="!last"></mat-divider></mat-list></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommentformComponent', 'selector': 'app-commentform'},{'name': 'ConfirmComponent', 'selector': 'app-confirm'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PostformComponent', 'selector': 'app-postform'},{'name': 'PostsListComponent', 'selector': 'app-posts'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'SinglepostComponent', 'selector': 'app-singlepost'},{'name': 'UserListComponent', 'selector': 'app-data'},{'name': 'UserformComponent', 'selector': 'app-userform'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PostsListComponent'};

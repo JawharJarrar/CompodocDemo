@@ -45,7 +45,7 @@ export class CommentformComponent implements OnInit {
   CommentSubmit() {
      if (this.data.action === 'edit') {
         this.comment.id =  this.dataservice.commentid;
-        this.commentservice.updateComment( this.dataservice.postid, this.comment );
+        this.commentservice.updateComment(this.comment );
         this.dialogRef.close(this.comment);
     } else {
         this.comment.postId = this.dataservice.postid;

@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
   }
 
   onRegisterSubmit() {
-    this.authservice.register();
+    this.authservice.register(this.signup);
     this.router.navigate(['/user/list']);
   }
 }

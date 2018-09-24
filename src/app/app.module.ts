@@ -20,7 +20,12 @@ import { UserService } from './shared/services/user.service';
 import { ComponentsModule } from './shared/components/components.module';
 import { MaterialModule } from './shared/components/material';
 import { AppRoutingModule } from './app-routing.module';
-
+/**
+ *
+ *
+ * @export
+ * @class AppModule
+ */
 @NgModule({
   declarations: [
     AppComponent,

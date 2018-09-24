@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { ConfirmComponent } from './confirm.component';
 import { MaterialModule } from './../material';
@@ -11,7 +13,7 @@ describe('ConfirmComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule, ReactiveFormsModule],
+      imports: [MaterialModule, ReactiveFormsModule, HttpClientModule],
       declarations: [ ConfirmComponent ],
       providers: [
         { provide: MAT_DIALOG_DATA , useValue: {} },

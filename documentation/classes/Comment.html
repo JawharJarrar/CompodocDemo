@@ -66,6 +66,13 @@
             <code>src/app/shared/models/comment.model.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>the Comment class</p>
+
+            </p>
 
 
 
@@ -143,10 +150,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/shared/models/comment.model.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/shared/models/comment.model.ts:24</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the content if the comment</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -177,10 +190,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/shared/models/comment.model.ts:5</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/models/comment.model.ts:20</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>rmail related to the comment</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -211,10 +230,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="2" class="link-to-prism">src/app/shared/models/comment.model.ts:2</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/shared/models/comment.model.ts:8</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>comment nimber</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -245,10 +270,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/app/shared/models/comment.model.ts:4</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/models/comment.model.ts:16</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>comment name</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -279,10 +310,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/app/shared/models/comment.model.ts:3</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/shared/models/comment.model.ts:12</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the postid that the comment belongs to</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -299,10 +336,25 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class  Comment {
+    /**
+     * comment nimber
+     */
     id: number;
+    /**
+     * the postid that the comment belongs to
+     */
     postId: number;
+    /**
+     * comment name
+     */
     name: string;
+    /**
+     * rmail related to the comment
+     */
     email: string;
+    /**
+     * the content if the comment
+     */
     body: string;
 }
 </code></pre>

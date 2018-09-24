@@ -17,7 +17,7 @@ import { Comment } from '../models/comment.model';
  * the service used to manage posts and their related comments
  */
 export class PostService {
-  private postsUrl = 'https://jsonplaceholder.typicode.com/posts/';
+  private postsUrl = 'http://localhost:3000/posts/';
 
 /**
  * the constructor of our service takes httpclient to  access apis
@@ -30,14 +30,18 @@ export class PostService {
   getAll(): Observable<Post[]> {
     return this.http.get<Post[]>(this.postsUrl);
   }
-
+  getPosts() {
+    return this.http.get<Post[]>(this.postsUrl);
+  }
+/**
+ * the constructor of our service takes httpclient to  access apis
+ */
   deletePost(post: Post) {
     return this.http.delete(this.postsUrl + '/' + post.id ).subscribe()  ;
   }
 
   addPost(post: Post) {
-    console.log('before');
-    return this.http.post(this.postsUrl, JSON.stringify(post)).subscribe();
+    return this.http.post(this.postsUrl, post).subscribe();
   }
 
   getById(postid: number) {
@@ -45,7 +49,7 @@ export class PostService {
   }
 
   updatePost(postid: number, post: Post) {
-    return this.http.put(this.postsUrl + '/' + postid, JSON.stringify(post)).subscribe() ;
+    return this.http.put(this.postsUrl + '/' + postid, post).subscribe() ;
   }
 
   getComments(id: number):  Observable<Comment[]> {

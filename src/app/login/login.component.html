@@ -26,6 +26,8 @@
                   (click)= onLoginSubmit()
                   [disabled]="!loginForm.valid">Login</button>
           <button mat-button routerLink="/signup" class="divider">Register</button>
+          <p *ngIf="message">wrong password/email</p>
+
       </div>
     </form>
   </div>

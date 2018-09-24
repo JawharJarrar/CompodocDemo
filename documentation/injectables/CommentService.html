@@ -261,7 +261,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/shared/services/comment.service.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/shared/services/comment.service.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -330,7 +330,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/shared/services/comment.service.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/shared/services/comment.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -392,14 +392,14 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>updateComment(commentid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, comment: <a href="../classes/Comment.html">Comment</a>)</code>
+<code>updateComment(comment: <a href="../classes/Comment.html">Comment</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/shared/services/comment.service.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/shared/services/comment.service.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -418,18 +418,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <tr>
-                                                        <td>commentid</td>
-                                                        <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                </tr>
                                                 <tr>
                                                         <td>comment</td>
                                                         <td>
@@ -493,7 +481,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;https://jsonplaceholder.typicode.com/comments/&#x27;</code>
+                            <i>Default value : </i><code>&#x27;http://localhost:3000/comments&#x27;</code>
                         </td>
                     </tr>
                         <tr>
@@ -520,11 +508,12 @@ import { Comment } from &#x27;../models/comment.model&#x27;;
   providedIn: &#x27;root&#x27;
 })
 export class CommentService {
-  private commentsUrl &#x3D; &#x27;https://jsonplaceholder.typicode.com/comments/&#x27;;
+  private commentsUrl &#x3D; &#x27;http://localhost:3000/comments&#x27;;
   constructor(private http: HttpClient) {}
 
   addComment(comment: Comment) {
-    return this.http.post(this.commentsUrl, JSON.stringify(comment)).subscribe();
+  console.log(comment);
+    return this.http.post(this.commentsUrl, comment).subscribe();
   }
 
   getById(commentid: number) {
@@ -532,11 +521,11 @@ export class CommentService {
   }
 
   deleteComment(comment: Comment) {
-    return this.http.delete(this.commentsUrl + &#x27;/&#x27; + comment.id ).subscribe()  ;
+    return this.http.delete(this.commentsUrl  + &#x27;/&#x27; + comment.id ).subscribe()  ;
   }
 
-  updateComment(commentid: number, comment: Comment) {
-    return this.http.put(this.commentsUrl + &#x27;/&#x27; + commentid, JSON.stringify(comment)).subscribe();
+  updateComment(comment: Comment) {
+    return this.http.put(this.commentsUrl + &#x27;/&#x27; + comment.id, comment).subscribe();
   }
 }
 </code></pre>

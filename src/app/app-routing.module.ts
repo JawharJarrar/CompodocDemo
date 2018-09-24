@@ -16,7 +16,7 @@ const appRoutes: Routes = [
 
 
 /**
- * Main module routing
+ * Main module routig
  *
  * Link to about module with lazy-loading, and instead to home component
  */

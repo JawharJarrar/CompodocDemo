@@ -27,30 +27,32 @@ export class UserListComponent implements OnInit {
   this.userService.getAll().subscribe(data => {
     this.users = data;
     this.dataSource = new UserDataSource(this.users);
+    console.log(this.users);
+
   });
 }
-
+  refresh() {
+    this.userService.getAll().subscribe(data => {
+      this.users = data;
+      this.dataSource = new UserDataSource(this.users);
+    });
+  }
   AddUser( ) {
     const dialogRef = this.dialog.open(UserformComponent, {
       data: { name: '' }
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.users.push(result);
-      this.dataSource = new UserDataSource(this.users);
+      this.refresh();
+
     });
   }
 
   DeleteUser(user: User) {
     const dialogRef = this.dialog.open(ConfirmComponent, {
-      data: { message: 'are you sure you want to delete this user ?' }
+      data: { message: 'are you sure you want to delete this user ?', entity: user, type: 'user' }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if ( result === 'yes' ) {
-        this.userService.deleteUser(user);
-        const index = this.users.indexOf(user);
-        this.users.splice(index, 1);
-        this.dataSource = new UserDataSource(this.users);
-      }
+      this.refresh();
     });
    }
 
@@ -61,8 +63,8 @@ export class UserListComponent implements OnInit {
       data: { action: 'edit', name: user.name, website: user.website, phone: user.phone, email: user.email}
       });
     dialogRef.afterClosed().subscribe(result => {
-      this.users[index] = result;
-      this.dataSource = new UserDataSource(this.users);
+      this.refresh();
+
     });
   }
 }
